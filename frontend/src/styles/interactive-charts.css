@@ -1,0 +1,476 @@
+/* Interactive Charts - Ultra Modern Design */
+
+.interactive-chart-wrapper {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.interactive-chart-container {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 
+    0 24px 48px rgba(0, 0, 0, 0.15),
+    0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: chartSlideIn 0.8s ease-out;
+}
+
+@keyframes chartSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.interactive-chart-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  border-radius: 28px 28px 0 0;
+  animation: gradientFlow 3s ease-in-out infinite;
+}
+
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.interactive-chart-container:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 32px 64px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.chart-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+.chart-icon {
+  width: 2rem;
+  height: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  animation: iconFloat 2s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.chart-content {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bar Chart Styles */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: barSlideIn 0.6s ease-out both;
+}
+
+@keyframes barSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.bar-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bar-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  height: 2rem;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 12px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: barGrow 1.2s ease-out both;
+}
+
+@keyframes barGrow {
+  from { width: 0%; }
+  to { width: var(--width, 0%); }
+}
+
+.bar-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.bar-value {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Line Chart Styles */
+.line-chart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.line-chart svg {
+  width: 100%;
+  height: 100%;
+  animation: lineDraw 1.5s ease-out;
+}
+
+@keyframes lineDraw {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.data-point {
+  animation: pointPulse 2s ease-in-out infinite;
+}
+
+@keyframes pointPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Pie Chart Styles */
+.pie-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.pie-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  animation: pieRotate 2s ease-out;
+}
+
+@keyframes pieRotate {
+  from { transform: rotate(-90deg) scale(0.8); }
+  to { transform: rotate(0deg) scale(1); }
+}
+
+.pie-slice {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(-90deg);
+  transition: all 0.5s ease;
+}
+
+.pie-slice:hover {
+  transform: rotate(-90deg) scale(1.05);
+}
+
+.pie-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pie-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pie-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.legend-color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend-label {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.legend-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress Chart Styles */
+.progress-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.progress-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: progressSlideIn 0.6s ease-out both;
+}
+
+@keyframes progressSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  height: 1rem;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 12px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: progressGrow 1.2s ease-out both;
+}
+
+@keyframes progressGrow {
+  from { width: 0%; }
+  to { width: var(--width, 0%); }
+}
+
+.progress-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.progress-details {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .interactive-chart-container {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .chart-title {
+    font-size: 1.25rem;
+  }
+  
+  .pie-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .pie-center {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .pie-value {
+    font-size: 1.25rem;
+  }
+  
+  .pie-label {
+    font-size: 0.625rem;
+  }
+  
+  .bar-container {
+    height: 1.5rem;
+  }
+  
+  .progress-bar {
+    height: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .interactive-chart-container {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .pie-chart {
+    gap: 1.5rem;
+  }
+  
+  .pie-container {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .pie-center {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .pie-value {
+    font-size: 1rem;
+  }
+  
+  .pie-label {
+    font-size: 0.5rem;
+  }
+}

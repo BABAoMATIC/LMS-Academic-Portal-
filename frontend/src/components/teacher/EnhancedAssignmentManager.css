@@ -1,0 +1,625 @@
+/* Enhanced Assignment Manager - Modern Professional Styling */
+
+.assignment-manager-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.assignment-manager-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.assignment-header {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.assignment-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #10b981, #06b6d4, #8b5cf6);
+  border-radius: 24px 24px 0 0;
+}
+
+.assignment-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1f2937 0%, #3b82f6 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.assignment-subtitle {
+  font-size: 1.125rem;
+  color: #64748b;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.assignment-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.assignment-btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.25);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid transparent;
+}
+
+.assignment-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.assignment-btn-primary:hover::before {
+  left: 100%;
+}
+
+.assignment-btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.assignment-btn-secondary {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid transparent;
+}
+
+.assignment-btn-secondary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #059669, #047857);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.assignment-btn-warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid transparent;
+}
+
+.assignment-btn-warning:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, #d97706, #b45309);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.assignment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.assignment-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.assignment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #10b981, #8b5cf6);
+  border-radius: 24px 24px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.assignment-card:hover::before {
+  transform: scaleX(1);
+}
+
+.assignment-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+}
+
+.assignment-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.assignment-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-right: 1.5rem;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.assignment-icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.assignment-card:hover .assignment-icon::after {
+  left: 100%;
+}
+
+.assignment-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.assignment-card-description {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.assignment-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.assignment-stat-item {
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.5);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.assignment-stat-item:hover {
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+.assignment-stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.assignment-stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.assignment-card-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.assignment-card-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.assignment-card-btn-view {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+.assignment-card-btn-view:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+}
+
+.assignment-card-btn-edit {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.assignment-card-btn-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+}
+
+.assignment-card-btn-delete {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.assignment-card-btn-delete:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+}
+
+/* Assignment Form Modal */
+.assignment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.assignment-modal {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.assignment-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #10b981, #8b5cf6);
+  border-radius: 24px 24px 0 0;
+}
+
+.assignment-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.assignment-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.assignment-form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.assignment-form-label.required::after {
+  content: '*';
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.assignment-form-input,
+.assignment-form-textarea,
+.assignment-form-select {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.assignment-form-input:focus,
+.assignment-form-textarea:focus,
+.assignment-form-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.assignment-form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.assignment-file-upload {
+  border: 2px dashed #d1d5db;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: rgba(248, 250, 252, 0.5);
+  cursor: pointer;
+}
+
+.assignment-file-upload:hover {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.05);
+  transform: translateY(-2px);
+}
+
+.assignment-file-upload.dragover {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.assignment-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+  margin-top: 1rem;
+}
+
+.assignment-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.assignment-loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(59, 130, 246, 0.2);
+  border-radius: 50%;
+  border-top-color: #3b82f6;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .assignment-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .assignment-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .assignment-manager-container {
+    padding: 1rem;
+  }
+  
+  .assignment-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .assignment-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .assignment-title {
+    font-size: 1.75rem;
+  }
+  
+  .assignment-card-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .assignment-header,
+  .assignment-modal {
+    padding: 1.5rem;
+  }
+  
+  .assignment-title {
+    font-size: 1.5rem;
+  }
+  
+  .assignment-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .assignment-manager-container {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+  
+  .assignment-header,
+  .assignment-card,
+  .assignment-modal,
+  .assignment-loading-state {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%);
+    border-color: rgba(71, 85, 105, 0.3);
+  }
+  
+  .assignment-title {
+    background: linear-gradient(135deg, #f1f5f9 0%, #60a5fa 50%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .assignment-card-title {
+    color: #f1f5f9;
+  }
+  
+  .assignment-form-input,
+  .assignment-form-textarea,
+  .assignment-form-select {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: #475569;
+    color: #f1f5f9;
+  }
+  
+  .assignment-stat-item {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(71, 85, 105, 0.5);
+  }
+}
